@@ -1,5 +1,5 @@
-salesforce_bulk_2_1_1.egg-info*
-*/salesforce_bulk_2_1_1.egg-info/*
+salesforce-bulk-2-7.egg-info*
+*/salesforce-bulk-2-7.egg-info/*
 build/*
 dist/*
 *.pyc
