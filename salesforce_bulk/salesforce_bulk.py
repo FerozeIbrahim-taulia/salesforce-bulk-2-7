@@ -107,13 +107,16 @@ class SalesforceBulk(object):
 
     @staticmethod
     def login_to_salesforce(username, password, sandbox=False, security_token=None,
-                            organizationId=None, client_id=None, API_version=DEFAULT_API_VERSION):
+                            organizationId=None, client_id=None, API_version=DEFAULT_API_VERSION,domain=None):
         if client_id:
             client_id = "{prefix}/{app_name}".format(
                 prefix=DEFAULT_CLIENT_ID_PREFIX,
                 app_name=client_id)
         else:
             client_id = DEFAULT_CLIENT_ID_PREFIX
+
+        if domain is None and sandbox:
+            domain = 'test'
 
         if all(arg is not None for arg in (
                 username, password, security_token)):
@@ -123,6 +126,7 @@ class SalesforceBulk(object):
                 username=username,
                 password=password,
                 security_token=security_token,
+                domain=domain,
                 sf_version=API_version,
                 client_id=client_id)
 
@@ -134,6 +138,7 @@ class SalesforceBulk(object):
                 username=username,
                 password=password,
                 organizationId=organizationId,
+                domain=domain,
                 sf_version=API_version,
                 client_id=client_id)
 
