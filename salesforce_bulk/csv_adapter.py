@@ -1,4 +1,3 @@
-#python
 from __future__ import absolute_import
 import unicodecsv as csv
 
